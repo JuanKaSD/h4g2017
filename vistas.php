@@ -3,7 +3,7 @@
         public static function header($title){
             echo "
             <!DOCTYPE html>
-                <html>
+                <html lang=\"es\">
                     <head>
                         <meta charset=\"utf-8\">
                         <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
@@ -11,6 +11,7 @@
 
                         <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">
                         <link href=\"css/datepicker3.css\" rel=\"stylesheet\">
+                        <link href=\"css/bootstrap-table.css\" rel=\"stylesheet\">
                         <link href=\"css/styles.css\" rel=\"stylesheet\">
 
                         <!--Icons-->
@@ -26,7 +27,7 @@
                     <body>";
         }
 
-        public static function navegation($name,$slogan=""){
+        public static function navegation($name,$slogan="",$usuario=""){
             echo "
             <nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">
                 <div class=\"container-fluid\">
@@ -41,11 +42,12 @@
                         <ul class=\"user-menu\">
                             <li class=\"dropdown pull-right\">
                                 <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">
-                                    <svg class=\"glyph stroked male-user\"><use xlink:href=\"#stroked-male-user\"></use></svg> ". @$_SESSION['usuario'] ." <span class=\"caret\"></span></a>
+                                    <svg class=\"glyph stroked male-user\"><use xlink:href=\"#stroked-male-user\"></use></svg>$usuario<span class=\"caret\"></span></a>
                                 <ul class=\"dropdown-menu\" role=\"menu\">
-                                    <li><a href=\"#\"><svg class=\"glyph stroked male-user\"><use xlink:href=\"#stroked-male-user\"></use></svg> Perfil</a></li>
-                                    <li><a href=\"#\"><svg class=\"glyph stroked gear\"><use xlink:href=\"#stroked-gear\"></use></svg> Cuenta</a></li>
-                                    <li><a href=\"#\"><svg class=\"glyph stroked cancel\"><use xlink:href=\"#stroked-cancel\"></use></svg> Salir</a></li>
+                                    <li><a href=\"index.php?camp=1\"><svg class=\"glyph stroked male-user\"><use xlink:href=\"#stroked-male-user\"></use></svg> pepe social</a></li>
+                                    <li><a href=\"indexPaco.php?camp=1\"><svg class=\"glyph stroked male-user\"><use xlink:href=\"#stroked-male-user\"></use></svg>paco acogedor</a></li>
+                                    <li><a href=\"indexJuan.php?camp=1\"><svg class=\"glyph stroked male-user\"><use xlink:href=\"#stroked-male-user\"></use></svg>juan empresario</a></li>
+                                    <li><a href=\"indexJose.php?camp=1\"><svg class=\"glyph stroked male-user\"><use xlink:href=\"#stroked-male-user\"></use></svg> jose solidario</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -55,136 +57,156 @@
 
         }
 
+
+        public static function menuIndex(){
+            echo "
+            <div id=\"sidebar-collapse\" class=\"col-sm-3 col-lg-2 sidebar\">
+                <ul class=\"nav menu\">
+                    <li role=\"presentation\" class=\"divider\"></li>
+                    <li>Nuevos Candidatos</li>
+                    <li role=\"presentation\" class=\"divider\"></li>
+                    <li><a href=\"index.php?camp=1\"><svg class=\"glyph stroked clipboard with paper\"><use xlink:href=\"#stroked-clipboard-with-paper\"></use></svg> Candidatos</a></li>
+                    <li role=\"presentation\" class=\"divider\"></li>
+                    <li>Mis Candidatos</li>
+                    <li role=\"presentation\" class=\"divider\"></li>
+                    <li><a href=\"index.php?camp=2\"><svg class=\"glyph stroked star\"><use xlink:href=\"#stroked-star\"></use></svg> Valorar</a></li>
+                    <li><a href=\"index.php?camp=3\"><svg class=\"glyph stroked notepad\"><use xlink:href=\"#stroked-notepad\"></use></svg> Otorgar Habilidad</a></li>
+                </ul>
+            </div>";
+        }
+
+        public static function contentIndexCand(){
+            echo "
+            <div class=\"col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main\">
+                <div class=\"row\">
+                    <div class=\"col-lg-12\">
+                        <div class=\"panel panel-default\">
+                            <div class=\"panel-heading\">Candidatos</div>
+                            <div class=\"panel-body\">
+                                <table data-toggle=\"table\" data-url=\"tables/data2.json\"  data-show-refresh=\"true\" data-show-toggle=\"true\" data-show-columns=\"true\" data-search=\"true\" data-select-item-name=\"toolbar1\" data-pagination=\"true\" data-sort-name=\"name\" data-sort-order=\"desc\">
+                                    <thead>
+                                    <tr>
+                                        <th data-field=\"id\" data-sortable=\"true\" >ID</th>
+                                        <th data-field=\"nombre\" data-sortable=\"true\">Nombre</th>
+                                        <th data-field=\"apellido\"  data-sortable=\"true\">Apellidos</th>
+                                        <th data-field=\"habilidad\" data-sortable=\"true\">Habilidades</th>
+                                        <th data-field=\"state\" data-checkbox=\"true\">seleccionar</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.row-->
+            </div>	<!--/.main-->";
+        }
+
+        public static function contentIndexVal(){
+            echo "
+            <div class=\"col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main\">
+                <div class=\"row\">
+                    <div class=\"col-lg-12\">
+                        <div class=\"panel panel-default\">
+                            <div class=\"panel-heading\">Candidatos</div>
+                            <div class=\"panel-body\">
+                                <table data-toggle=\"table\" data-url=\"tables/data2.json\"  data-show-refresh=\"true\" data-show-toggle=\"true\" data-show-columns=\"true\" data-search=\"true\" data-select-item-name=\"toolbar1\" data-pagination=\"true\" data-sort-name=\"name\" data-sort-order=\"desc\">
+                                    <thead>
+                                    <tr>
+                                        <th data-field=\"id\" data-sortable=\"true\" >ID</th>
+                                        <th data-field=\"nombre\" data-sortable=\"true\">Nombre</th>
+                                        <th data-field=\"apellido\"  data-sortable=\"true\">Apellidos</th>
+                                        <th data-field=\"tsrealizado\" data-sortable=\"true\">T.S. Realizado</th>
+                                        <th data-field=\"valoracion\" data-sortable=\"true\">Valoracion</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.row-->
+            </div>	<!--/.main-->";
+        }
+
+        public static function contentIndexOto(){
+            echo "
+            <div class=\"col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main\">
+                <div class=\"row\">
+                    <div class=\"col-lg-12\">
+                        <div class=\"panel panel-default\">
+                            <div class=\"panel-heading\">Candidatos</div>
+                            <div class=\"panel-body\">
+                                <table data-toggle=\"table\" data-url=\"tables/data2.json\"  data-show-refresh=\"true\" data-show-toggle=\"true\" data-show-columns=\"true\" data-search=\"true\" data-select-item-name=\"toolbar1\" data-pagination=\"true\" data-sort-name=\"name\" data-sort-order=\"desc\">
+                                    <thead>
+                                    <tr>
+                                        <th data-field=\"id\" data-sortable=\"true\" >ID</th>
+                                        <th data-field=\"nombre\" data-sortable=\"true\">Nombre</th>
+                                        <th data-field=\"apellido\"  data-sortable=\"true\">Apellidos</th>
+                                        <th data-field=\"habilidad\" data-sortable=\"true\">Habilidades</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.row-->
+            </div>	<!--/.main-->";
+        }
+
         public static function contentIndex(){
             echo "
             <div class=\"col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main\">
-            <div id=\"sidebar-collapse\" class=\"col-sm-3 col-lg-2 sidebar\">
-                <form role=\"search\">
-                    <div class=\"form-group\">
-                        <input type=\"text\" class=\"form-control\" placeholder=\"Search\">
+                <div class=\"row\">
+                    <div class=\"col-lg-12\">
+                        <h1>Hola!!...</h1>
                     </div>
-                </form>
-                <ul class=\"nav menu\">
-                    <li class=\"active\"><a href=\"index.html\"><svg class=\"glyph stroked dashboard-dial\"><use xlink:href=\"#stroked-dashboard-dial\"></use></svg> Dashboard</a></li>
-                    <li><a href=\"widgets.html\"><svg class=\"glyph stroked calendar\"><use xlink:href=\"#stroked-calendar\"></use></svg> Widgets</a></li>
-                    <li><a href=\"charts.html\"><svg class=\"glyph stroked line-graph\"><use xlink:href=\"#stroked-line-graph\"></use></svg> Charts</a></li>
-                    <li><a href=\"tables.html\"><svg class=\"glyph stroked table\"><use xlink:href=\"#stroked-table\"></use></svg> Tables</a></li>
-                    <li><a href=\"forms.html\"><svg class=\"glyph stroked pencil\"><use xlink:href=\"#stroked-pencil\"></use></svg> Forms</a></li>
-                    <li><a href=\"panels.html\"><svg class=\"glyph stroked app-window\"><use xlink:href=\"#stroked-app-window\"></use></svg> Alerts &amp; Panels</a></li>
-                    <li><a href=\"icons.html\"><svg class=\"glyph stroked star\"><use xlink:href=\"#stroked-star\"></use></svg> Icons</a></li>
-                    <li class=\"parent \">
-                        <a href=\"#\">
-                            <span data-toggle=\"collapse\" href=\"#sub-item-1\"><svg class=\"glyph stroked chevron-down\"><use xlink:href=\"#stroked-chevron-down\"></use></svg></span> Dropdown
-                        </a>
-                        <ul class=\"children collapse\" id=\"sub-item-1\">
-                            <li>
-                                <a class=\"\" href=\"#\">
-                                    <svg class=\"glyph stroked chevron-right\"><use xlink:href=\"#stroked-chevron-right\"></use></svg> Sub Item 1
-                                </a>
-                            </li>
-                            <li>
-                                <a class=\"\" href=\"#\">
-                                    <svg class=\"glyph stroked chevron-right\"><use xlink:href=\"#stroked-chevron-right\"></use></svg> Sub Item 2
-                                </a>
-                            </li>
-                            <li>
-                                <a class=\"\" href=\"#\">
-                                    <svg class=\"glyph stroked chevron-right\"><use xlink:href=\"#stroked-chevron-right\"></use></svg> Sub Item 3
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li role=\"presentation\" class=\"divider\"></li>
-                    <li><a href=\"login.html\"><svg class=\"glyph stroked male-user\"><use xlink:href=\"#stroked-male-user\"></use></svg> Login Page</a></li>
-                </ul>
-                <div class=\"attribution\">Template by <a href=\"http://www.medialoot.com/item/lumino-admin-bootstrap-template/\">Medialoot</a><br/><a href=\"http://www.glyphs.co\" style=\"color: #333;\">Icons by Glyphs</a></div>
-            </div><!--/.sidebar-->
-            <div class=\"row\">
-			<div class=\"col-md-8\">
-
-				<div class=\"panel panel-default chat\">
-					<div class=\"panel-heading\" id=\"accordion\"><svg class=\"glyph stroked two-messages\"><use xlink:href=\"#stroked-two-messages\"></use></svg> Chat</div>
-					<div class=\"panel-body\">
-						<ul>
-							<li class=\"left clearfix\">
-								<span class=\"chat-img pull-left\">
-									<img src=\"http://placehold.it/80/30a5ff/fff\" alt=\"User Avatar\" class=\"img-circle\" />
-								</span>
-								<div class=\"chat-body clearfix\">
-									<div class=\"header\">
-										<strong class=\"primary-font\">John Doe</strong> <small class=\"text-muted\">32 mins ago</small>
-									</div>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ante turpis, rutrum ut ullamcorper sed, dapibus ac nunc. Vivamus luctus convallis mauris, eu gravida tortor aliquam ultricies.
-									</p>
-								</div>
-							</li>
-							<li class=\"right clearfix\">
-								<span class=\"chat-img pull-right\">
-									<img src=\"http://placehold.it/80/dde0e6/5f6468\" alt=\"User Avatar\" class=\"img-circle\" />
-								</span>
-								<div class=\"chat-body clearfix\">
-									<div class=\"header\">
-										<strong class=\"pull-left primary-font\">Jane Doe</strong> <small class=\"text-muted\">6 mins ago</small>
-									</div>
-									<p>
-										Mauris dignissim porta enim, sed commodo sem blandit non. Ut scelerisque sapien eu mauris faucibus ultrices. Nulla ac odio nisl. Proin est metus, interdum scelerisque quam eu, eleifend pretium nunc. Suspendisse finibus auctor lectus, eu interdum sapien.
-									</p>
-								</div>
-							</li>
-							<li class=\"left clearfix\">
-								<span class=\"chat-img pull-left\">
-									<img src=\"http://placehold.it/80/30a5ff/fff\" alt=\"User Avatar\" class=\"img-circle\" />
-								</span>
-								<div class=\"chat-body clearfix\">
-									<div class=\"header\">
-										<strong class=\"primary-font\">John Doe</strong> <small class=\"text-muted\">32 mins ago</small>
-									</div>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ante turpis, rutrum ut ullamcorper sed, dapibus ac nunc. Vivamus luctus convallis mauris, eu gravida tortor aliquam ultricies.
-									</p>
-								</div>
-							</li>
-						</ul>
-					</div>
-
-					<div class=\"panel-footer\">
-						<div class=\"input-group\">
-							<input id=\"btn-input\" type=\"text\" class=\"form-control input-md\" placeholder=\"Type your message here...\" />
-							<span class=\"input-group-btn\">
-								<button class=\"btn btn-success btn-md\" id=\"btn-chat\">Send</button>
-							</span>
-						</div>
-					</div>
-				</div>
-
-			</div><!--/.col-->
-
-			<div class=\"col-md-4\">
-
-				<div class=\"panel panel-blue\">";
-
+                </div><!--/.row-->
+            </div>	<!--/.main-->";
         }
 
+        public static function menuPaco(){
+            echo "
+            <div id=\"sidebar-collapse\" class=\"col-sm-3 col-lg-2 sidebar\">
+                <ul class=\"nav menu\">
+                    <li><a href=\"indexPaco.php?camp=1\"><svg class=\"glyph stroked clipboard with paper\"><use xlink:href=\"#stroked-clipboard-with-paper\"></use></svg> Registrar Domicilio</a></li>
+                </ul>
+            </div>";
+        }
+
+        public static function contentPaco(){
+            echo "
+            <div class=\"col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main\">
+                <div class=\"row\">
+                    <div class=\"col-lg-12\">
+                        <div class=\"panel panel-default\">
+                            <div class=\"panel-heading\">Candidatos</div>
+                            <div class=\"panel-body\">
+                                <table data-toggle=\"table\" data-url=\"tables/data1.json\"  data-show-refresh=\"true\" data-show-toggle=\"true\" data-show-columns=\"true\" data-search=\"true\" data-select-item-name=\"toolbar1\" data-pagination=\"true\" data-sort-name=\"name\" data-sort-order=\"desc\">
+                                    <thead>
+                                    <tr>
+                                        <th data-field=\"id\" data-sortable=\"true\" >id</th>
+                                        <th data-field=\"pais\" data-sortable=\"true\">pais</th>
+                                        <th data-field=\"provincia\" data-sortable=\"true\">provincia</th>
+                                        <th data-field=\"direccion\" data-sortable=\"true\">direccion</th>
+                                        <th data-field=\"numero\" data-sortable=\"true\">numero</th>
+                                        <th data-field=\"codpostal\"  data-sortable=\"true\">codpostal</th>
+                                        <th data-field=\"habitaciones\" data-sortable=\"true\">habitaciones</th>
+
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.row-->
+            </div>	<!--/.main-->";
+        }
         public static function formLogin(){
 
         }
 
         public static function footer(){
             echo "
-                                <div class=\"panel-footer\">
-                                    <div class=\"input-group\">
-                                        <input id=\"btn-input\" type=\"text\" class=\"form-control input-md\" placeholder=\"Add new task\" />
-                                        <span class=\"input-group-btn\">
-                                            <button class=\"btn btn-primary btn-md\" id=\"btn-todo\">Add</button>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
 
-                        </div><!--/.col-->
-                    </div><!--/.row-->
-                </div>	<!--/.main-->
 
                 <script src=\"js/jquery-1.11.1.min.js\"></script>
                 <script src=\"js/bootstrap.min.js\"></script>
@@ -193,6 +215,7 @@
                 <script src=\"js/easypiechart.js\"></script>
                 <script src=\"js/easypiechart-data.js\"></script>
                 <script src=\"js/bootstrap-datepicker.js\"></script>
+                <script src=\"js/bootstrap-table.js\"></script>
                 <script>
                     $('#calendar').datepicker({
                     });

@@ -1,37 +1,50 @@
 [
     {
         "id": 0,
-        "name": "Item 0",
-        "price": "$0"
+        "nombre": "paquito",
+        "apellido": "gonzalez",
+        "habilidad": "<ol class=\"breadcrumb\"><li><svg class='glyph stroked eye user-menu'><use xlink:href='#stroked-eye'></use></svg></li></ol>",
+        "valoracion": "5",
+        "tsrealizado": "cocinero"
     },
     {
         "id": 1,
-        "name": "Item 1",
-        "price": "$1"
+        "nombre": "pepito",
+        "apellido": "ramirez",
+        "habilidad": "<ol class=\"breadcrumb\"><li><svg class='glyph stroked eye user-menu'><use xlink:href='#stroked-eye'></use></svg></li></ol>",
+        "valoracion": "3",
+        "tsrealizado": "barrendero"
     },
     {
         "id": 2,
-        "name": "Item 2",
-        "price": "$2"
+        "nombre": "lucia",
+        "apellido": "quintana",
+        "habilidad": "<ol class=\"breadcrumb\"><li><svg class='glyph stroked eye user-menu'><use xlink:href='#stroked-eye'></use></svg></li></ol>",
+        "valoracion": "2",
+        "tsrealizado": "instalador electrico"
     },
     {
         "id": 3,
-        "name": "Item 3",
-        "price": "$3"
+        "nombre": "manolo",
+        "apellido": "doreste",
+        "habilidad": "<ol class=\"breadcrumb\"><li><svg class='glyph stroked eye user-menu'><use xlink:href='#stroked-eye'></use></svg></li></ol>",
+        "valoracion": "4",
+        "tsrealizado": "fontanero"
     },
     {
         "id": 4,
-        "name": "Item 4",
-        "price": "$4"
+        "nombre": "rosa",
+        "apellido": "rosales",
+        "habilidad": "<ol class=\"breadcrumb\"><li><svg class='glyph stroked eye user-menu'><use xlink:href='#stroked-eye'></use></svg></li></ol>",
+        "valoracion": "1",
+        "tsrealizado": "carpintero"
     },
     {
         "id": 5,
-        "name": "Item 5",
-        "price": "$5"
-    },
-    {
-        "id": 6,
-        "name": "Item 6",
-        "price": "$6"
+        "nombre": "ana",
+        "apellido": "cleto",
+        "habilidad": "<ol class=\"breadcrumb\"><li><svg class='glyph stroked eye user-menu'><use xlink:href='#stroked-eye'></use></svg></li></ol>",
+        "valoracion": "2",
+        "tsrealizado": "jardinero"
     }
 ]

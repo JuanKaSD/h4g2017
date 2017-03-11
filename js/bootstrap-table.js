@@ -154,28 +154,28 @@
         rowStyle: function (row, index) {return {};},
 
         formatLoadingMessage: function () {
-            return 'Loading, please wait…';
+            return 'Cargando, un  momento por favor…';
         },
         formatRecordsPerPage: function (pageNumber) {
-            return sprintf('%s records per page', pageNumber);
+            return sprintf('%s Resultados por pagina', pageNumber);
         },
         formatShowingRows: function (pageFrom, pageTo, totalRows) {
-            return sprintf('Showing %s to %s of %s rows', pageFrom, pageTo, totalRows);
+            return sprintf('Mostrando %s a %s de %s resultados', pageFrom, pageTo, totalRows);
         },
         formatSearch: function () {
-            return 'Search';
+            return 'Buscar';
         },
         formatNoMatches: function () {
-            return 'No matching records found';
+            return 'No se encontraron resultados';
         },
         formatRefresh: function () {
-            return 'Refresh';
+            return 'Recargar';
         },
         formatToggle: function () {
-            return 'Toggle';
+            return 'Listar';
         },
         formatColumns: function () {
-            return 'Columns';
+            return 'Columnas';
         },
 
         onAll: function (name, args) {return false;},
