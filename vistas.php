@@ -166,6 +166,10 @@
 
         }
 
+        public static function formLogin(){
+
+        }
+
         public static function footer(){
             echo "
                                 <div class=\"panel-footer\">
